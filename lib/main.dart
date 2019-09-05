@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'chooser.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MyApp());
+  });
+}
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: Colors.white,
                 child: Image.asset(
                   'assets/US.png',
-                  height: 29,
+                  height: 28,
                   fit: BoxFit.cover,
                 ),
               )
@@ -73,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             Text("Eat In",
                                 style: TextStyle(fontWeight: FontWeight.bold))
                           ]),
-                      onPressed: () {},
+                      onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Chooser(type: "Eat In")));},
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(20.0)))),
               Spacer(),
@@ -95,7 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             Text("Take Out",
                                 style: TextStyle(fontWeight: FontWeight.bold))
                           ]),
-                      onPressed: () {},
+                      onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Chooser(type: "Take Out")));},
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(20.0)))),
               Spacer(flex: 5),
