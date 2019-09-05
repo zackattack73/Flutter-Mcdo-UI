@@ -1,16 +1,5 @@
-# mcdo_ui
+# Flutter Mcdonald's UI concept
+Flutter UI challenge to create an app using a redesign of Mcdonald's Kiosk.
 
-A new Flutter application.
+Design from : https://www.behance.net/gallery/84835219/McDonalds-Kiosk-Redesign
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
