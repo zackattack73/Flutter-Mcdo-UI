@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'chooser.dart';
 import 'package:flutter/services.dart';
+import 'animationTest.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 28,
                   fit: BoxFit.cover,
                 ),
-              )
+              ),
             ]),
           )),
       Center(
@@ -102,8 +103,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             Text("Take Out",
                                 style: TextStyle(fontWeight: FontWeight.bold))
                           ]),
-                      onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Chooser(type: "Take Out")));},
+                      onPressed: () {
+                        //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Chooser(type: "Take Out")));},
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Anim()));},
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(20.0)))),
               Spacer(flex: 5),

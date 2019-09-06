@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'item.dart';
 class Chooser extends StatefulWidget {
   final type; // Eat in or Take out
 
@@ -10,6 +10,23 @@ class Chooser extends StatefulWidget {
 }
 
 class _MyChooserState extends State<Chooser> {
+  List<Item> itemMenu = [];
+  void initState() {
+    super.initState();
+    Item i1 = new Item("Combo Meal","assets/combo.png");
+    Item i2 = new Item("Burgers","assets/burgers.png");
+    Item i3 = new Item("Happy Meal","assets/meal.png");
+    Item i4 = new Item("Dummy","assets/in.png");
+    itemMenu.add(i1);
+    itemMenu.add(i2);
+    itemMenu.add(i3);
+    itemMenu.add(i4);
+    itemMenu.add(i4);
+    itemMenu.add(i4);
+    itemMenu.add(i4);
+  }
+
+
   double total = 0.00;
   @override
   Widget build(BuildContext context) {
@@ -24,6 +41,7 @@ class _MyChooserState extends State<Chooser> {
                 children: <Widget>[
                   SizedBox(height: 100),
                   Container(
+                    // Top text
                     margin: const EdgeInsets.only(left: 20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,47 +54,49 @@ class _MyChooserState extends State<Chooser> {
                       ],
                     ),
                   ),
+                  Expanded(
+                          child: GridView.count(
+                              crossAxisCount: 3,
+                              scrollDirection: Axis.horizontal,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              padding: const EdgeInsets.all(10),
+                              children: List.generate(itemMenu.length, (index) {
+                                return Center(
+                                    child: ButtonTheme(
+                                        child: RaisedButton(
+                                            splashColor:
+                                                Color.fromRGBO(230, 203, 51, 1),
+                                            color: (index != 0)
+                                                ? Colors.white
+                                                : Color.fromRGBO(
+                                                    201, 22, 25, 1),
+                                            child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: <Widget>[
+                                                  Spacer(),
+                                                  Image.asset(
+                                                    itemMenu[index].img,
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                  Spacer(),
+                                                  FittedBox(fit:BoxFit.fitWidth,
+                                                      child: Text(itemMenu[index].name,
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                              FontWeight.bold)))
+                                                  ,Spacer(),
+
+                                                ]),
+                                            onPressed: () {},
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    new BorderRadius.circular(
+                                                        20.0)))));
+                              })),flex: 2),
                   Container(
-                      height: MediaQuery.of(context).size.height/2,
-                      child: GridView.count(
-                          crossAxisCount: 3,
-                          scrollDirection: Axis.horizontal,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          padding: const EdgeInsets.all(10),
-                          children: List.generate(9, (index) {
-                            return Center(
-                                child: ButtonTheme(
-                                    minWidth: 100.0,
-                                    height: 125.0,
-                                    //(index==0)?
-                                    child: RaisedButton(
-                                      splashColor: Color.fromRGBO(230, 203, 51, 1),
-                                        color: (index!=0)?Colors.white:Color.fromRGBO(201, 22, 25, 1),
-                                        child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              Image.asset(
-                                                'assets/in.png',
-                                                fit: BoxFit.cover,
-                                              ),
-                                              Text("Eat In",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold))
-                                            ]),
-                                        onPressed: () {
-
-
-
-                                        },
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(
-                                                    20.0)))));
-                          }))),
-                  Container(
+                    // Bottom Text
                     margin: const EdgeInsets.only(left: 20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,16 +109,13 @@ class _MyChooserState extends State<Chooser> {
                       ],
                     ),
                   ),
-                  Container(
-                      height: MediaQuery.of(context).size.height/5,
+                  Expanded(
                       child: GridView.count(
                           crossAxisCount: 2,
                           scrollDirection: Axis.horizontal,
                           children: List.generate(9, (index) {
                             return Center(
                                 child: ButtonTheme(
-                                    minWidth: 100.0,
-                                    height: 125.0,
                                     child: FlatButton(
                                         color: Colors.white,
                                         child: Column(
@@ -116,7 +133,7 @@ class _MyChooserState extends State<Chooser> {
                                             borderRadius:
                                                 new BorderRadius.circular(
                                                     20.0)))));
-                          })))
+                          })),flex: 1,)
                 ],
               ),
             ),
@@ -173,9 +190,11 @@ class _MyChooserState extends State<Chooser> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: <Widget>[
-                                          Text("Done",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold))
+                                          FittedBox(fit:BoxFit.fitWidth,
+                                              child: Text("Done",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                      FontWeight.bold,fontSize: 20)))
                                         ]),
                                     onPressed: () {},
                                     shape: RoundedRectangleBorder(
