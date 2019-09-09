@@ -104,8 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontWeight: FontWeight.bold))
                           ]),
                       onPressed: () {
-                        //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Chooser(type: "Take Out")));},
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Anim()));},
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Chooser(type: "Take Out")));},
+                        //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Anim()));},
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(20.0)))),
               Spacer(flex: 5),
