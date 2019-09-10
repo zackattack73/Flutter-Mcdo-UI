@@ -256,6 +256,7 @@ class _MyChooserState extends State<Chooser> {
                                                       fontSize: 20)))
                                         ]),
                                     onPressed: () {
+                                      Navigation.initPaths(itemCart,widget.type);
                                       Navigation.router.navigateTo(context, 'payment',
                                           transition: TransitionType.fadeIn);
                                     },
@@ -366,7 +367,7 @@ class _MyChooserState extends State<Chooser> {
 class Navigation {
   static Router router;
 
-  static void initPaths() {
+  static void initPaths(itemCart,type) {
     router = Router()
       ..define('/', handler: Handler(
           handlerFunc: (BuildContext context, Map<String, dynamic> params) {
@@ -374,7 +375,7 @@ class Navigation {
           }))
       ..define('payment', handler: Handler(
           handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-            return Payment();
+            return Payment(cart : itemCart, type : type);
           }));
   }
 
