@@ -141,14 +141,16 @@ class _MyChooserState extends State<Chooser> {
                                               'assets/logo.png',
                                               fit: BoxFit.cover,
                                             ),
-                                            Text("Name"),
+                                      FittedBox(
+                                          fit: BoxFit.fitWidth, child : Text("Name")),
                                             Spacer(),
-                                            Text(
+                                      FittedBox(
+                                          fit: BoxFit.fitWidth, child : Text(
                                               "\$2.79",
                                               style: TextStyle(
                                                   color: Color.fromRGBO(
                                                       230, 203, 51, 1)),
-                                            ),
+                                      )),
                                             Spacer(),
                                           ]),
                                       onPressed: () {},
@@ -239,8 +241,8 @@ class _MyChooserState extends State<Chooser> {
                             getTotal(),
                             Spacer(),
                             ButtonTheme(
-                                minWidth: 100.0,
-                                height: 100.0,
+                                minWidth: 50.0,
+                                height: 50.0,
                                 child: RaisedButton(
                                     color: Color.fromRGBO(230, 203, 51, 1),
                                     child: Column(

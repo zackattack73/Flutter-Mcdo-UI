@@ -25,7 +25,7 @@ class _MyPaymentState extends State<Payment> {
         body: Stack(
           children: <Widget>[
             Positioned(
-                top: 70.0,
+                top: 40.0,
                 child: Container(
                   padding: EdgeInsets.only(left: 15.0, right: 15.0),
                   width: MediaQuery.of(context).size.width,
@@ -46,11 +46,11 @@ class _MyPaymentState extends State<Payment> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 120),
+                SizedBox(height: 90),
                 Center(
                     child: Image.asset(
                   'assets/logo.png',
-                  height: 80.0,
+                  height: 60.0,
                   fit: BoxFit.cover,
                 )),
                 SizedBox(height: 15),
@@ -62,12 +62,12 @@ class _MyPaymentState extends State<Payment> {
                           Text("My",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 30,
+                                  fontSize: 25,
                                   color: Colors.white)),
                           Text("Order",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 30,
+                                  fontSize: 25,
                                   color: Colors.white)),
                           SizedBox(height: 7),
                           Text(widget.type,
@@ -93,6 +93,30 @@ class _MyPaymentState extends State<Payment> {
                     return listItem(position);
                   },
                 )),
+                SizedBox(height: 10),
+                Center(child:
+                ButtonTheme(
+                    minWidth: 50.0,
+                    height: 50.0,
+                    child: RaisedButton(
+                        color: Color.fromRGBO(230, 203, 51, 1),
+                        child: Column(
+                            mainAxisAlignment:
+                            MainAxisAlignment.center,
+                            children: <Widget>[
+                              FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: Text("Payment",
+                                      style: TextStyle(
+                                          fontWeight:
+                                          FontWeight.bold,
+                                          fontSize: 20)))
+                            ]),
+                        onPressed: () {},
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                            new BorderRadius.circular(30.0))))),
+                SizedBox(height: 10),
               ],
             )
           ],

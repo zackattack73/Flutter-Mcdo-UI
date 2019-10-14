@@ -5,10 +5,8 @@ import 'package:flutter/services.dart';
 import 'animationTest.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
+  WidgetsFlutterBinding.ensureInitialized();
     runApp(new MyApp());
-  });
 }
 
 class MyApp extends StatelessWidget {
